@@ -1,0 +1,12 @@
+def distinct(A):
+  # An empty array has no distinct values
+    if len(A) == 0: 
+        return 0
+    # Sort so equal values sit next to each other
+    A.sort()
+    count = 1 # the first element is always a new value
+    for i in range(1, len(A)):
+    # A change from the previous value means a new distinct value
+        if A[i] != A[i-1]:
+            count += 1
+    return count
