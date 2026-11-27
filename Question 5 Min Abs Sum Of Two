@@ -1,0 +1,19 @@
+def solution(A):
+    A.sort()
+    left = 0
+    right = len(A) - 1
+    best = abs(A[0] + A[0])  # any valid pair to start (P = Q allowed)
+
+    # <= so an element can be paired with itself
+    while left <= right:
+        total = A[left] + A[right]
+        best = min(best, abs(total))
+
+        if total > 0:
+            right -= 1   # sum too big: use a smaller number
+        elif total < 0:
+            left += 1    # sum too small: use a bigger number
+        else:
+            return 0     # nothing beats 0
+
+    return best
