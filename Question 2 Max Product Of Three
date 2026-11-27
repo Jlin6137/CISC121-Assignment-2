@@ -1,0 +1,11 @@
+def solution(A):
+    # Sort so the smallest and largest values are at the ends
+    A.sort()
+    n = len(A)
+
+    # Option 1: the three largest numbers
+    product_largest = A[n - 1] * A[n - 2] * A[n - 3]
+    # Option 2: the two smallest (possibly negative) times the largest
+    product_negatives = A[0] * A[1] * A[n - 1]
+
+    return max(product_largest, product_negatives)
